@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import Button from '../components/Button';
+import { getAll } from '../BooksAPI';
 
 class ShelvesContainer extends Component {
+  state = {
+    books: [],
+    isLoading: true
+  };
+
+  async componentDidMount () {
+    const books = await getAll();
+    this.setState({ books, isLoading: false });
+  }
+
   render () {
     return (
       <section className="ShelvesContainer">
-        <Button icon="add" link="/search">Add books</Button>
       </section>
     );
   }
