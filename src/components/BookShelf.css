@@ -1,0 +1,9 @@
+.BookShelf {
+
+}
+
+.BookShelf__books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

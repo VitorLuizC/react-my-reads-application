@@ -1,0 +1,28 @@
+:root {
+  --Book-gutter: 64px;
+  --Book-cover-size: 128px;
+}
+
+.Book {
+  box-sizing: border-box;
+  width: calc(var(--Book-gutter) + var(--Book-cover-size));
+  margin: 16px;
+}
+
+.Book__cover {
+  width: calc(var(--Book-gutter) + var(--Book-cover-size));
+  margin: 0;
+  padding: 0;
+}
+
+.Book__image {
+  display: block;
+  margin-right: calc(var(--Book-gutter) / 2);
+  margin-left: calc(var(--Book-gutter) / 2);
+}
+
+.Book__title,
+.Book__subtitle {
+  text-align: center;
+  margin: 0;
+}
