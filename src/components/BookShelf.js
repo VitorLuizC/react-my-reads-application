@@ -11,22 +11,19 @@ function BookShelf ({ books = [], title = '' }) {
         )
       }
 
-      {
-        books && (
-          <div className="BookShelf__books">
-            {
-              books.map((book) => (
-                <Book
-                  image={book.imageLinks.thumbnail}
-                  title={book.title}
-                  authors={book.authors}
-                  subtitle={book.subtitle}
-                />
-              ))
-            }
-          </div>
-        )
-      }
+      <div className="BookShelf__books">
+        {
+          books.map((book) => (
+            <Book
+              key={book.id}
+              image={book.imageLinks.thumbnail}
+              title={book.title}
+              authors={book.authors}
+              subtitle={book.subtitle}
+            />
+          ))
+        }
+      </div>
     </div>
   );
 }

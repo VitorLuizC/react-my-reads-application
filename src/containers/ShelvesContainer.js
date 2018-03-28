@@ -1,20 +1,29 @@
+import { states } from '../ReadState'
 import React, { Component } from 'react';
-import { getAll } from '../BooksAPI';
+import BookShelf from '../components/BookShelf'
 
 class ShelvesContainer extends Component {
-  state = {
-    books: [],
-    isLoading: true
-  };
-
-  async componentDidMount () {
-    const books = await getAll();
-    this.setState({ books, isLoading: false });
+  get shelves () {
+    return Object.entries(states).map(
+      ([ shelf, title ]) => ({
+        title,
+        books: this.props.books.filter((book) => book.shelf === shelf)
+      })
+    );
   }
 
   render () {
     return (
       <section className="ShelvesContainer">
+        {
+          this.shelves.map((shelf) => (
+            <BookShelf
+              key={shelf.title}
+              title={shelf.title}
+              books={shelf.books}
+            />
+          ))
+        }
       </section>
     );
   }
