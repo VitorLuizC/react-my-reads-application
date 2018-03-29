@@ -1,7 +1,8 @@
 import './Book.css';
 import React from 'react';
+import ShelvesOptions from './ShelvesOptions';
 
-function Book ({ image, title, subtitle, authors, status }) {
+function Book ({ book, shelf = 'none', image, title, subtitle }) {
   return (
     <div className="Book">
       <figure className="Book__cover">
@@ -15,6 +16,8 @@ function Book ({ image, title, subtitle, authors, status }) {
           <h4 className="Book__subtitle">{subtitle}</h4>
         )
       }
+
+      <ShelvesOptions book={book} shelf={shelf} />
     </div>
   );
 }

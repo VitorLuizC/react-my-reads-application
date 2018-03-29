@@ -1,13 +1,14 @@
-import { states } from '../ReadState'
+import { states } from '../Shelves';
 import React, { Component } from 'react';
-import BookShelf from '../components/BookShelf'
+import BookShelf from '../components/BookShelf';
+import { StoreConsumer } from '../Store';
 
 class ShelvesContainer extends Component {
-  get shelves () {
+  getShelves (books) {
     return Object.entries(states).map(
       ([ shelf, title ]) => ({
         title,
-        books: this.props.books.filter((book) => book.shelf === shelf)
+        books: books.filter((book) => book.shelf === shelf)
       })
     );
   }
@@ -15,15 +16,17 @@ class ShelvesContainer extends Component {
   render () {
     return (
       <section className="ShelvesContainer">
-        {
-          this.shelves.map((shelf) => (
-            <BookShelf
-              key={shelf.title}
-              title={shelf.title}
-              books={shelf.books}
-            />
-          ))
-        }
+        <StoreConsumer>{
+          ({ state }) => (
+            this.getShelves(state.books).map((shelf) => (
+              <BookShelf
+                key={shelf.title}
+                title={shelf.title}
+                books={shelf.books}
+              />
+            ))
+          )}
+        </StoreConsumer>
       </section>
     );
   }

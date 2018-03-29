@@ -5,25 +5,25 @@ import BookShelf from '../components/BookShelf';
 
 class SearchContainer extends Component {
   state = {
-    books: []
+    results: []
   };
 
   async searchBooks (query) {
-    const books = await search(query);
+    const results = await search(query);
 
-    if (books.error) {
-      this.setState({ books: [] });
+    if (results.error) {
+      this.setState({ results: [] });
       return;
     }
 
-    this.setState({ books });
+    this.setState({ results });
   }
 
   render () {
     return (
       <section className="SearchContainer">
         <SearchForm onSearch={(query) => this.searchBooks(query)} />
-        <BookShelf books={this.state.books} />
+        <BookShelf books={this.state.results} />
       </section>
     );
   }

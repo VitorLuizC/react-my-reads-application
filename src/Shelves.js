@@ -1,11 +1,12 @@
 export const states = {
+  none: 'None',
   read: 'Read',
   wantToRead: 'Want to Read',
   currentlyReading: 'Currently Reading'
-}
+};
 
 /**
- * Get read state as options.
+ * Get shelves as options.
  * @returns {Array.<{ value: string, label: string }>}
  */
 export const getOptions = () => {

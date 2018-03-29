@@ -1,0 +1,45 @@
+.ShelvesOptions {
+
+}
+
+.ShelvesOptions--open {
+
+}
+
+.ShelvesOptions__button {
+  display: block;
+  width: 80px;
+  height: 80px;
+  background-size: 60%;
+  background-color: var(--color-primary);
+  background-image: url('../assets/icons/arrow-drop-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform .8s ease;
+}
+
+.ShelvesOptions--open .ShelvesOptions__button {
+  transform: rotate(180deg);
+}
+
+.ShelvesOptions__options {
+  position: absolute;
+  margin: 0;
+  padding: 18px;
+  list-style: none;
+  background-color: var(--color-neutral);
+
+  animation: pop .8s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(.5);
+  } 80% {
+    transform: scale(1.1);
+  } 90% {
+    transform: scale(.9);
+  } 100% {
+    transform: scale(1);
+  }
+}

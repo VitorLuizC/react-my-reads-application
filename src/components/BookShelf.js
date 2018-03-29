@@ -16,9 +16,9 @@ function BookShelf ({ books = [], title = '' }) {
           books.map((book) => (
             <Book
               key={book.id}
+              book={book}
               image={book.imageLinks.thumbnail}
               title={book.title}
-              authors={book.authors}
               subtitle={book.subtitle}
             />
           ))

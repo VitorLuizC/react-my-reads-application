@@ -4,3 +4,8 @@ body {
   margin: 0;
   font-family: sans-serif;
 }
+
+:root {
+  --color-primary: red;
+  --color-neutral: rgb(196, 196, 196);
+}
