@@ -2,8 +2,14 @@
 
 }
 
+.BookShelf__title {
+  font-weight: 300;
+  margin: var(--App-spacing);
+  border-bottom: 1px solid #000;
+}
+
 .BookShelf__books {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }

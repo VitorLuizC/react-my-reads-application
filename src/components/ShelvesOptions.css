@@ -1,21 +1,34 @@
-.ShelvesOptions {
-
+:root {
+  --ShelvesOptions-button: 60px;
 }
 
-.ShelvesOptions--open {
-
+.ShelvesOptions {
+  position: absolute;
+  top: calc(100% - var(--App-spacing));
+  width: 100%;
+  z-index: 1;
 }
 
 .ShelvesOptions__button {
   display: block;
-  width: 80px;
-  height: 80px;
+  width: var(--ShelvesOptions-button);
+  height: var(--ShelvesOptions-button);
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
   background-size: 60%;
-  background-color: var(--color-primary);
+  background-color: var(--App-color-primary);
   background-image: url('../assets/icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
   transition: transform .8s ease;
+  cursor: pointer;
+}
+
+.ShelvesOptions__button:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .ShelvesOptions--open .ShelvesOptions__button {
@@ -24,11 +37,14 @@
 
 .ShelvesOptions__options {
   position: absolute;
+  width: calc(100% - var(--App-spacing));
   margin: 0;
-  padding: 18px;
+  margin-top: calc(var(--App-spacing) * -1);
+  padding: 0;
+  border-radius: calc(var(--App-spacing) / 2);
   list-style: none;
   background-color: var(--color-neutral);
-
+  z-index: -1;
   animation: pop .8s ease;
 }
 

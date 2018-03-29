@@ -1,0 +1,22 @@
+
+
+.ShelvesContainer__button {
+  position: fixed;
+  right: var(--App-spacing);
+  bottom: var(--App-spacing);
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-size: 60%;
+  background-color: var(--App-color-contrast);
+  background-image: url('../assets/icons/add.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform .8s ease;
+  z-index: 3;
+  cursor: pointer;
+}

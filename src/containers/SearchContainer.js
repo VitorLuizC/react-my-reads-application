@@ -1,3 +1,4 @@
+import './SearchContainer.css';
 import React, { Component } from 'react';
 import SearchForm from '../components/SearchForm';
 import { search } from '../BooksAPI';
@@ -23,7 +24,9 @@ class SearchContainer extends Component {
     return (
       <section className="SearchContainer">
         <SearchForm onSearch={(query) => this.searchBooks(query)} />
-        <BookShelf books={this.state.results} />
+        <div className="SearchContainer__results">
+          <BookShelf books={this.state.results} />
+        </div>
       </section>
     );
   }

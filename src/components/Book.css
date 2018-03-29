@@ -1,28 +1,37 @@
 :root {
-  --Book-gutter: 64px;
   --Book-cover-size: 128px;
+  --Book-background: #f1f2f6;
 }
 
 .Book {
+  position: relative;
   box-sizing: border-box;
-  width: calc(var(--Book-gutter) + var(--Book-cover-size));
-  margin: 16px;
+  width: calc(var(--Book-cover-size) + var(--App-spacing) * 4);
+  margin: var(--App-spacing);
+  margin-bottom: calc(var(--ShelvesOptions-button) - var(--App-spacing));
+  padding: var(--App-spacing);
+  border-radius: 16px;
+  background-color: var(--Book-background);
 }
 
 .Book__cover {
-  width: calc(var(--Book-gutter) + var(--Book-cover-size));
+  width: 100%;
   margin: 0;
   padding: 0;
 }
 
 .Book__image {
   display: block;
-  margin-right: calc(var(--Book-gutter) / 2);
-  margin-left: calc(var(--Book-gutter) / 2);
+  margin: 0 var(--App-spacing);
+}
+
+.Book__title {
+  font-weight: 300;
 }
 
 .Book__title,
 .Book__subtitle {
   text-align: center;
   margin: 0;
+  margin-top: 8px;
 }

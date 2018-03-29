@@ -1,9 +1,14 @@
 .ShelfOption {
+  padding: calc(var(--App-spacing) / 2) var(--App-spacing);
+  cursor: pointer;
+}
 
+.ShelfOption + .ShelfOption {
+  border-top: 1px solid rgba(0,0,0, .25);
 }
 
 .ShelfOption--active {
-
+  color: var(--App-color-primary);
 }
 
 .ShelfOption__label {
