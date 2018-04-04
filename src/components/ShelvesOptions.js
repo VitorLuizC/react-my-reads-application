@@ -1,9 +1,9 @@
 import './ShelvesOptions.css';
 import { getOptions } from '../Shelves';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ShelfOption from './ShelfOption';
 
-class ShelvesOptions extends Component {
+class ShelvesOptions extends PureComponent {
   state = {
     isOpen: false,
     options: getOptions()

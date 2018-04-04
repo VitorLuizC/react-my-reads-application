@@ -43,3 +43,32 @@
 .SearchForm__field:focus {
   outline: none;
 }
+
+:root {
+  --SearchForm-loader-size: calc(var(--SearchForm-size) * .6);
+  --SearchForm-loader-gutter: calc(var(--SearchForm-size) * .2);
+}
+
+.SearchForm__loader {
+  box-sizing: border-box;
+  flex: 1;
+      width: var(--SearchForm-loader-size);
+  min-width: var(--SearchForm-loader-size);
+  max-width: var(--SearchForm-loader-size);
+      height: var(--SearchForm-loader-size);
+  min-height: var(--SearchForm-loader-size);
+  max-height: var(--SearchForm-loader-size);
+  margin: var(--SearchForm-loader-gutter);
+  padding: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-right-color: #888;
+  border-bottom-color: #888;
+  animation: spin linear .8s infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

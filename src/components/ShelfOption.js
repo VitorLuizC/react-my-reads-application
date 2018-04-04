@@ -3,20 +3,21 @@ import './ShelfOption.css';
 import { StoreConsumer } from '../Store';
 
 function ShelfOption ({ book, label, shelf }) {
-  const isActive = book.shelf === shelf
-  const className = `ShelfOption ${isActive ? `ShelfOption--active` : ''}`
-
   return (
-    <StoreConsumer>
-      {
-        ({ actions }) => (
-          <li
-            className={className}
-            onClick={() => actions.setBookShelf(book, shelf)}
-          >
-            <span className="ShelfOption__label">{label}</span>
-          </li>
-        )
+    <StoreConsumer>{
+        (store) => {
+          const isActive = store.actions.isCurrentShelf(book.id, shelf)
+          const onClick = () => store.actions.setBookShelf(book, shelf)
+          const classNames = `ShelfOption ${isActive ? `ShelfOption--active` : ''}`
+          return (
+            <li
+              className={classNames}
+              onClick={onClick}
+            >
+              <span className="ShelfOption__label">{label}</span>
+            </li>
+          )
+        }
       }
     </StoreConsumer>
   );

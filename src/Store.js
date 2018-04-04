@@ -38,12 +38,25 @@ class StoreController extends Component {
     });
   }
 
+  /**
+   * Check if book from state.books is equals shelf.
+   * @param {string} bookID
+   * @param {string} shelf
+   * @returns {boolean}
+   */
+  isCurrentShelf (bookID, shelf) {
+    const book = this.state.books.find((book) => book.id === bookID)
+    const bookShelf = (book && book.shelf) || 'none'
+    return shelf === bookShelf
+  }
+
   render () {
     return (
       <StoreProvider value={{
         state: this.state,
         actions: {
           setBookShelf: this.changeBookShelf.bind(this),
+          isCurrentShelf: this.isCurrentShelf.bind(this),
         }
       }}>
         {this.props.children}

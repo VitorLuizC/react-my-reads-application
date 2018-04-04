@@ -10,6 +10,11 @@ class SearchContainer extends Component {
   };
 
   async searchBooks (query) {
+    if (!query) {
+      this.setState({ results: [] });
+      return;
+    }
+
     const results = await search(query);
 
     if (results.error) {

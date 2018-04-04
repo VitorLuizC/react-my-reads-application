@@ -1,31 +1,26 @@
 import './SearchForm.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import debounce from 'debounce-promise';
 
 class SearchForm extends Component {
   state = {
-    query: ''
+    query: '',
+    isLoading: false
   };
 
-  onSubmit (event) {
-    event.preventDefault();
-    const query = this.state.query;
-    if (!query)
-      return;
-    this.props.onSearch && this.props.onSearch(query);
-  }
+  search = debounce(this.props.onSearch, 200);
 
-  onUpdate (event) {
+  async onUpdate (event) {
     const query = event.target.value;
-    this.setState({ query });
+    this.setState({ query, isLoading: true });
+    await this.search(query);
+    this.setState({ isLoading: false });
   }
 
   render () {
     return (
-      <form
-        className="SearchForm"
-        onSubmit={(event) => this.onSubmit(event)}
-      >
+      <form className="SearchForm">
         <Link className="SearchForm__link" to="/" />
 
         <div className="SearchForm__fieldset">
@@ -37,6 +32,12 @@ class SearchForm extends Component {
             onChange={(event) => this.onUpdate(event)}
           />
         </div>
+
+        {
+          this.state.isLoading && (
+            <figure className="SearchForm__loader"></figure>
+          )
+        }
       </form>
     );
   }
